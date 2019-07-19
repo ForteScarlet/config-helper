@@ -1,11 +1,14 @@
 package com.forte.util.confhelp.record;
 
+import com.forte.util.confhelp.exception.ConfigsHelperException;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.Function;
 
 /**
  * 数据，可以对应普通的String数据, 也可以对应集合，键值对等
+ * TODO 考虑增加一个空值Data以代替返回值为null的情况
  * @author ForteScarlet <[email]ForteScarlet@163.com>
  * @since JDK1.8
  **/
@@ -59,6 +62,5 @@ public interface Data<T> extends Record, Map.Entry<String, T> {
     default String getKey() {
         return getName();
     }
-
 
 }

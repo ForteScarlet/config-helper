@@ -35,7 +35,7 @@ public class InjectorFactory {
 
 
 
-    /** 注入器列表 */
-    public static class Injectors extends ConcurrentHashMap<Class<?>, Injector<?>> {
+    /** 注入器列表，继承线程同步Map，暂时没什么意义，只是单纯的好看 */
+    private static class Injectors extends ConcurrentHashMap<Class<?>, Injector<?>> {
     }
 }

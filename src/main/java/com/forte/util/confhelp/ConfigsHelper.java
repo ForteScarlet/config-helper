@@ -1,6 +1,9 @@
 package com.forte.util.confhelp;
 
+import com.forte.util.confhelp.exception.ConfigsHelperException;
 import com.forte.util.confhelp.reader.Configs;
+import com.forte.util.confhelp.reader.Injector;
+import com.forte.util.confhelp.reader.InjectorFactory;
 
 /**
  * 配置类工具
@@ -14,10 +17,12 @@ public class ConfigsHelper {
     /**
      * 根据Configs对象进行注入
      */
-    public static Configs getConfigs(Configs configs, Object configBean){
+    public static void getConfigs(Configs configs, Object configBean){
+        Injector<?> injector = InjectorFactory.getInjector(configBean.getClass());
+        if(injector == null){
+            throw new ConfigsHelperException("无法获取"+ configBean.getClass() +"的注入器");
+        }
 
-
-        return null;
     }
 
 

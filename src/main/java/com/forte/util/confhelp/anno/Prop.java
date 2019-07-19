@@ -143,8 +143,8 @@ public @interface Prop {
                     //只有类上注解
                     //value为类注解value + '.' + 字段名
                     //setterable、getterable、nonNull使用类注解，其余的使用默认值
-                    String propValue = classAnnotation.value();
-                    value = (propValue.trim().length() == 0 ? "" : (propValue  + '.')) + field.getName();
+                    String classValue = classAnnotation.value();
+                    value = (classValue.trim().length() == 0 ? "" : (classValue  + '.')) + field.getName();
                     setterable = classAnnotation.setterable();
                     nonNull = classAnnotation.nonNull();
                     split = classAnnotation.split();
@@ -153,7 +153,8 @@ public @interface Prop {
                     //value为类上 + '.' + 字段上
                     //setterable、getterable、nonNull、split使用类上的，其余的使用字段上自己的
                     String propValue = fieldAnnotation.value();
-                    value = classAnnotation.value() + '.' + (propValue.trim().length() == 0 ? field.getName() : propValue);
+                    String classValue = classAnnotation.value();
+                    value = (classValue.trim().length() == 0 ? "" : classValue + '.') + (propValue.trim().length() == 0 ? field.getName() : propValue);
                     setterable = classAnnotation.setterable();
                     nonNull =    classAnnotation.nonNull();
                     split =      classAnnotation.split();
@@ -185,7 +186,7 @@ public @interface Prop {
             if(from == null){
                 return new PropData[0];
             }
-
+            //获取全部字段列表
             Field[] declaredFields = from.getDeclaredFields();
             Stream<PropData> thisClassProp = Arrays.stream(declaredFields).map(f -> getInstance(from, f));
             return Stream.concat(thisClassProp, Arrays.stream(getInstances(from.getSuperclass())))

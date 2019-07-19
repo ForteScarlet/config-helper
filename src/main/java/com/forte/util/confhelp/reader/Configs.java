@@ -46,14 +46,15 @@ public interface Configs {
     /**
      * 根据当前Configs数据，对参数进行配置注入
      */
-    default void inject(Object obj){
-        //获取此对象的所有所需配置项
-        Prop.PropData[] props = Prop.PropData.getInstances(obj.getClass());
+    default <T> T inject(T obj){
+        //获取其对应注入器
+        Injector<T> injector = (Injector<T>) InjectorFactory.getInjector(obj.getClass());
 
+        //执行注入
+        injector.inject(this, obj);
 
-
-
-
+        //返回其本身
+        return obj;
     }
 
 
