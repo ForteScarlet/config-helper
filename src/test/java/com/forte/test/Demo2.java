@@ -22,11 +22,12 @@ public class Demo2 {
 
         configs.inject(realConfig);
 
-        System.out.println(Arrays.toString(realConfig.getNo()));
-        System.out.println(realConfig.getUsername());
-        System.out.println(realConfig.getPassword());
-        System.out.println(realConfig.getIp());
-        System.out.println(realConfig.getUrl());
+        System.out.println("username : " + realConfig.getUsername());
+        System.out.println("password : " + realConfig.getPassword());
+        System.out.println("ip       : " + realConfig.getIp());
+        System.out.println("url      : " + realConfig.getUrl());
+        System.out.println("no       : " + Arrays.toString(realConfig.getNo()));
+        System.out.println("listNo   : " + realConfig.getListNo());
 
     }
 

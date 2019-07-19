@@ -2,6 +2,8 @@ package com.forte.test;
 
 import com.forte.util.confhelp.anno.Prop;
 
+import java.util.List;
+
 /**
  * @author ForteScarlet <[email]ForteScarlet@163.com>
  * @since JDK1.8
@@ -17,6 +19,9 @@ public class RealConfig extends BaseConfig {
 
     @Prop
     private double[] no;
+
+    @Prop("no")
+    private List<Double> listNo;
 
     public String getUsername() {
         return username;
@@ -40,5 +45,13 @@ public class RealConfig extends BaseConfig {
 
     public void setNo(double[] no) {
         this.no = no;
+    }
+
+    public List<Double> getListNo() {
+        return listNo;
+    }
+
+    public void setListNo(List<Double> listNo) {
+        this.listNo = listNo;
     }
 }
