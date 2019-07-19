@@ -194,6 +194,7 @@ public class Injector<T> {
                         } else if (FieldUtils.isChild(value, List.class) && needs.isArray()) {
                             //值为list，需要数组
                             //将List转化为数组
+                            //增加三个基础数据类型的判断
                             Class arrayGeneric = FieldUtils.getArrayGeneric(needs);
                             if(arrayGeneric.equals(int.class)){
                                 return (N) ((List) value).stream().mapToInt(la -> {
