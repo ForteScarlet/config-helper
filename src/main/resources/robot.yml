@@ -1,0 +1,13 @@
+robot:
+  config:
+    scan: com.forte.util.confhelp
+  ip: 127.0.0.1
+  serverPort: 8877
+  javaPort: 15514
+  path: /coolq
+name: this is a name
+num:
+  - num1: 123
+    num2: 456
+  - num1: 111
+    num2: 222

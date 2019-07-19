@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<robot>
+    <configs name="robot1">
+        <config name='config.scan' value='com.forte.util.confhelp' />
+        <config name='robot.ip' value='127.0.0.1' />
+    </configs>
+
+    <configs name="robot2">
+        <config name='serverPort' value='8877' />
+        <config name='serverPort' value='8878' />
+        <config name='serverPort' value='8879' />
+        <config name='javaPort' value='15514' />
+        <path>/coolq</path>
+        <dependGetter.class>com.forte.test.DependGetterImpl</dependGetter.class>
+    </configs>
+
+</robot>
